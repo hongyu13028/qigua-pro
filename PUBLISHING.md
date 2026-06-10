@@ -59,10 +59,10 @@
 - qigua.py（CLI工具）
 - gua_64.json（64卦数据库）
 - qigua_prompt.md（v2.0 解卦 prompt）
--知识库导览.md
-- 新会话使用手册.md
+- KB_GUIDE.md（知识库导览）
+- QUICKSTART.md（30秒上手）
 - .gitignore
-- 发布指南.md（本文件）
+- PUBLISHING.md（本文件）
 
 ### 第2步：git init + commit
 
