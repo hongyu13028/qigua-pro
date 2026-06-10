@@ -90,17 +90,17 @@ streamlit run app.py
 
 ```
 qigua-pro/
-├── README.md          ← 你正在看的
-├── LICENSE            ← MIT License
-├── app.py             ← Streamlit Web UI
-├── qigua.py           ← CLI 起卦工具（数字/时间/铜钱三种）
-├── gua_64.json        ← 64卦数据库
-├── qigua_prompt.md    ← AI 解卦 Prompt (v2.0)
-├── KB_GUIDE.md        ← 两系统协同说明
-├── QUICKSTART.md      ← 30秒上手指南
-├── PUBLISHING.md      ← 两大市场发布步骤
-├── demo.svg           ← SVG伪动画演示
-├── record_demo.py     ← 真 GIF录制工具
+├── README.md ← 你正在看的
+├── LICENSE ← MIT License
+├── app.py ← Streamlit Web UI
+├── qigua.py ← CLI 起卦工具（数字/时间/铜钱三种）
+├── gua_64.json ←64卦数据库
+├── qigua_prompt.md ← AI 解卦 Prompt (v2.0)
+├──知识库导览.md ← 两系统协同说明
+├── 新会话使用手册.md ←30 秒上手指南
+├── 发布指南.md ←两大市场发布步骤
+├── demo.svg ← SVG伪动画演示
+├──录屏脚本.py ← 真 GIF录制工具
 └── .gitignore
 ```
 
