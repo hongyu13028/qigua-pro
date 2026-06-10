@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="00800500" font-family="'Courier New', monospace">
+<!--背景 -->
+<rect width="800" height="500" fill="#1e1e1e"/>
+
+<!--终端窗口 -->
+<rect x="40" y="40" width="720" height="420" fill="#0c0c0c" stroke="#3e3e3e" stroke-width="2" rx="8"/>
+
+<!--窗口顶部红黄绿按钮 -->
+<circle cx="60" cy="60" r="6" fill="#ff5f57"/>
+<circle cx="80" cy="60" r="6" fill="#febc2e"/>
+<circle cx="100" cy="60" r="6" fill="#28c840"/>
+<text x="130" y="65" fill="#cccccc" font-size="14">PowerShell — D:\qigua-pro</text>
+
+<!--命令行 -->
+<text x="60" y="110" fill="#4ec9b0" font-size="14">PS D:\qigua-pro> </text>
+<text x="200" y="110" fill="#dcdcaa" font-size="14">python qigua.py --time --question "下周该不该接5万订单?"</text>
+<rect x="700" y="100" width="10" height="18" fill="#dcdcaa">
+<animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+</rect>
+
+<!--输出框 -->
+<text x="60" y="150" fill="#569cd6" font-size="14">═══════════════════════════════════════════════════</text>
+<text x="60" y="170" fill="#dcdcaa" font-size="14">【问卦】下周该不该接5万订单?</text>
+<text x="60" y="190" fill="#dcdcaa" font-size="14">起卦方式: 时间起卦 | 参数:2026-06-1016:00 时辰=申(9)</text>
+<text x="60" y="210" fill="#569cd6" font-size="14">───────────────────────────────────────────────</text>
+<text x="60" y="230" fill="#dcdcaa" font-size="14">本卦:革 ䷰ (49/64) 模块6</text>
+<text x="60" y="250" fill="#dcdcaa" font-size="14">上下: 下卦离 | 上卦兑</text>
+<text x="60" y="270" fill="#dcdcaa" font-size="14">关系: 下克上 (离→兑) —内部能驾驭外部,主动出击</text>
+<text x="60" y="290" fill="#dcdcaa" font-size="14">判断: 元亨利贞 —革要"时机成熟", 时机不到别动</text>
+<text x="60" y="310" fill="#dcdcaa" font-size="14">现代:革不是为变而变, 是"水到渠成"</text>
+
+<!--高亮"革 ䷰" -->
+<rect x="60" y="395" width="700" height="80" fill="#2d2d30" rx="4"/>
+<text x="70" y="425" fill="#28c840" font-size="16">✅ 起卦成功!</text>
+<text x="70" y="445" fill="#cccccc" font-size="12">📊6 层模型判断:阳遁末 + 火旺月 +5爻白虎</text>
+<text x="70" y="465" fill="#cccccc" font-size="12">🎯行动建议: 该接, 但控制在月利润30%以内</text>
+
+<!--动画:让整个输出区域淡入 -->
+<g opacity="0">
+<animate attributeName="opacity" from="0" to="1" dur="2s" begin="0s" fill="freeze"/>
+<text x="60" y="150" fill="#569cd6" font-size="14">═══════════════════════════════════════════════════</text>
+<text x="60" y="170" fill="#dcdcaa" font-size="14">【问卦】下周该不该接5万订单?</text>
+<text x="60" y="190" fill="#dcdcaa" font-size="14">起卦方式: 时间起卦 | 参数:2026-06-1016:00 时辰=申(9)</text>
+<text x="60" y="210" fill="#569cd6" font-size="14">───────────────────────────────────────────────</text>
+<text x="60" y="230" fill="#dcdcaa" font-size="14">本卦:革 ䷰ (49/64) 模块6</text>
+<text x="60" y="250" fill="#dcdcaa" font-size="14">上下: 下卦离 | 上卦兑</text>
+<text x="60" y="270" fill="#dcdcaa" font-size="14">关系: 下克上 (离→兑) —内部能驾驭外部,主动出击</text>
+<text x="60" y="290" fill="#dcdcaa" font-size="14">判断: 元亨利贞 —革要"时机成熟", 时机不到别动</text>
+<text x="60" y="310" fill="#dcdcaa" font-size="14">现代:革不是为变而变, 是"水到渠成"</text>
+</g>
+<g opacity="0">
+<animate attributeName="opacity" from="0" to="1" dur="1s" begin="2s" fill="freeze"/>
+<rect x="60" y="395" width="700" height="80" fill="#2d2d30" rx="4"/>
+<text x="70" y="425" fill="#28c840" font-size="16">✅ 起卦成功!</text>
+<text x="70" y="445" fill="#cccccc" font-size="12">📊6 层模型判断:阳遁末 + 火旺月 +5爻白虎</text>
+<text x="70" y="465" fill="#cccccc" font-size="12">🎯行动建议: 该接, 但控制在月利润30%以内</text>
+</g>
+</svg>
