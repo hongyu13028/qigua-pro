@@ -21,9 +21,18 @@
 import json
 import os
 import sys
+import io
 import time
 from datetime import datetime
 from pathlib import Path
+
+# 强制 UTF-8 输出 (Windows GBK 兼容)
+if sys.platform == 'win32':
+ try:
+  sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+  sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
+ except Exception:
+  pass
 
 # 八卦二进制编码 (从下到上: 初/二/三爻)
 TRIGRAMS = {
@@ -204,6 +213,9 @@ def full_divination(result, yao_change_pos=None, question=""):
     else:
         zhi_gua = None
         zhi_binary = binary
+    if zhi_binary == binary:
+        # 之卦与本卦相同 (变爻位置爻本就与翻转后一致) — 视作无动爻
+        zhi_gua = None
 
     # 互卦
     hu_binary = _binary_hu(binary)
