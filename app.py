@@ -1,6 +1,7 @@
 import streamlit as st
 import subprocess
 import os
+import sys
 st.set_page_config(page_title="Qigua Pro", page_icon="🪙", layout="wide")
 st.title("🪙 Qigua Pro")
 st.subheader("传统决策手艺")
@@ -8,11 +9,24 @@ st.markdown("---")
 st.header("起卦")
 question = st.text_input("问题", placeholder="下周该不该接5万订单")
 method = st.radio("方式", ["数字", "时间", "铜钱"])
-a =0
-b =0
+a = 0
+b = 0
+yao_list = []
+change_pos = 0
 if method == "数字":
  a = st.number_input("数字 a", value=88)
  b = st.number_input("数字 b", value=18)
+elif method == "铜钱":
+ st.markdown("依次输入 6 个爻 (1=阳/0=阴), 从下到上:")
+ yao_cols = st.columns(6)
+ pos_names = ["初", "二", "三", "四", "五", "上"]
+ for i, col in enumerate(yao_cols):
+ with col:
+ yao = st.selectbox(f"{pos_names[i]}爻", [0, 1], key=f"yao_{i}")
+ yao_list.append(yao)
+ st.markdown(f"当前爻: {yao_list}")
+ change_pos = st.number_input("变爻位置 (1-6, 0=无变爻)", min_value=0, max_value=6, value=0)
+
 run = st.button("起卦")
 if not run:
  st.stop()
@@ -20,21 +34,30 @@ if question == "":
  st.error("请先填写问题")
  st.stop()
 with st.spinner("起卦中"):
+ env = os.environ.copy()
+ env["PYTHONIOENCODING"] = "utf-8"
  cmd = ["python", "qigua.py", "--question", question]
  if method == "数字":
-  cmd = ["python", "qigua.py", "--number", str(int(a)), str(int(b)), "--question", question]
+ cmd = ["python", "qigua.py", "--number", str(int(a)), str(int(b)), "--question", question]
  elif method == "时间":
-  cmd = ["python", "qigua.py", "--time", "--question", question]
- result = subprocess.run(cmd, capture_output=True, text=True, cwd=os.path.dirname(os.path.abspath(__file__)), timeout=30)
-if result.returncode ==0:
+ cmd = ["python", "qigua.py", "--time", "--question", question]
+ elif method == "铜钱":
+ cmd = ["python", "qigua.py", "--coins"] + [str(y) for y in yao_list]
+ if change_pos > 0:
+ cmd.extend(["--change", str(int(change_pos))])
+ cmd.extend(["--question", question])
+ result = subprocess.run(cmd, capture_output=True, text=True, cwd=os.path.dirname(os.path.abspath(__file__)), env=env, timeout=30)
+
+if result.returncode == 0:
  st.success("✅ 起卦成功")
  st.code(result.stdout)
 else:
  st.error("起卦失败")
  st.code(result.stderr)
+
 st.markdown("---")
 with st.expander("6层模型速查"):
- st.markdown("1.阴阳遁2.月令旺衰3.爻位六神4.用神5.八门九星6.三奇")
+ st.markdown("1.阴阳遁 2.月令旺衰 3.爻位六神 4.用神 5.八门九星 6.三奇")
 with st.expander("6大场景案例"):
- st.markdown("-事业 -家庭 - 教育 - 健康 -财务 -社交")
+ st.markdown("- 事业 - 家庭 - 教育 - 健康 - 财务 - 社交")
 st.markdown("MIT · 黄耀锋 · v3.0")
